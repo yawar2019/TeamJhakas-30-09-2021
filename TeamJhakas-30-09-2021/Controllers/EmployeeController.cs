@@ -17,7 +17,7 @@ namespace TeamJhakas_30_09_2021.Controllers
 
         public string EmployeName()
         {
-            return "Prakash";
+            return "Prakash1";
         }
 
         public int Age(int age)
