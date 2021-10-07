@@ -80,5 +80,48 @@ namespace TeamJhakas_30_09_2021.Controllers
 
             return View();
         }
+
+        public ActionResult getmeview()
+        {
+            ViewBag.Name = "hello";
+            return View("~/Views/New/index.cshtml");
+        }
+
+        public ActionResult jumpingBall()
+        {
+            return RedirectToAction("index1", "New",new {id=1211});
+        }
+
+        public ActionResult jumpingModel()
+        {
+
+            List<EmployeeModel> listObj = new List<EmployeeModel>();
+
+
+            EmployeeModel obj = new EmployeeModel();
+            obj.EmpId = 1;
+            obj.EmpName = "Jack";
+            obj.EmpSalary = 99999;
+
+            EmployeeModel obj1 = new EmployeeModel();
+
+            obj1.EmpId = 2;
+            obj1.EmpName = "Rupesh";
+            obj1.EmpSalary = 9999;
+
+
+            EmployeeModel obj2 = new EmployeeModel();
+            obj2.EmpId = 3;
+            obj2.EmpName = "Sushma";
+            obj2.EmpSalary = 39999;
+
+            listObj.Add(obj);
+            listObj.Add(obj1);
+            listObj.Add(obj2);
+
+
+
+            return RedirectToAction("index2", "New", listObj);
+        }
     }
 }
