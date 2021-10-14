@@ -19,7 +19,7 @@ namespace TeamJhakas_30_09_2021.Controllers
         {
             return Redirect("https://www.google.com/");
         }
-        public ActionResult index1(int? id)
+        public ActionResult index1(EmployeeModel obj)
         {
             return View();
         }

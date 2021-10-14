@@ -1,0 +1,16 @@
+﻿@model TeamJhakas_30_09_2021.Models.EmpDept
+
+
+<table>
+    <tr>
+        <th>DeptId</th>
+        <th>DeptName</th>
+    </tr>
+    @foreach (var item in Model.dept)
+    {
+        <tr>
+            <td>@item.DeptId</td>
+            <td>@item.DeptName</td>
+        </tr>
+    }
+</table>

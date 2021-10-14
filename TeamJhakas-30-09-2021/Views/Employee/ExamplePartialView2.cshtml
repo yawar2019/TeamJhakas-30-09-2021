@@ -1,0 +1,23 @@
+﻿@model TeamJhakas_30_09_2021.Models.EmpDept
+@{
+    ViewBag.Title = "ExamplePartialView2";
+}
+
+<h2>ExamplePartialView2</h2>
+
+@Html.Partial("_MyEmpPartialView", Model)
+<br /><br />
+@{
+    int a = 10;
+    var s = Html.Partial("_MyDeptPartialView", Model);
+
+    if (a == 10) {
+        @s
+    }
+        }<br />
+
+@{
+   Html.RenderPartial("_MyEmpPartialView", Model);
+    }
+
+

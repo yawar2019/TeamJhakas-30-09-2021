@@ -164,6 +164,11 @@
     <Content Include="Views\Employee\sendDatausingModel.cshtml" />
     <Content Include="Views\Employee\sendDatausingMultipleModel.cshtml" />
     <Content Include="Views\Employee\sendMixModel.cshtml" />
+    <Content Include="Views\Shared\_MyPartialView.cshtml" />
+    <Content Include="Views\Employee\ExamplePartialView.cshtml" />
+    <Content Include="Views\Shared\_MyEmpPartialView.cshtml" />
+    <Content Include="Views\Employee\ExamplePartialView2.cshtml" />
+    <Content Include="Views\Shared\_MyDeptPartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
