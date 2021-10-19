@@ -13,10 +13,18 @@ namespace TeamJhakas_30_09_2021
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
+            routes.MapRoute(
+               name: "Default1",
+               url: "PistaHouse/Pizza",
+               defaults: new { controller = "Employee", action = "EmployeeId", id = UrlParameter.Optional }
+           );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Employee", action = "EmployeName", id = UrlParameter.Optional}
+                defaults: new { controller = "Employee", action = "EmployeName", id = UrlParameter.Optional }
             );
         }
     }

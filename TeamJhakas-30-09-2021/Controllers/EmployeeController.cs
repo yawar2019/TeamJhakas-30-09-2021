@@ -137,7 +137,9 @@ namespace TeamJhakas_30_09_2021.Controllers
 
             return View(obj);
         }
-
+        [Route("jungle/tiger")]
+        [Route("jungle/elephant")]
+        [Route("Employee/sendDatausingMultipleModel")]
         public ActionResult sendDatausingMultipleModel()
         {
             List<EmployeeModel> listObj = new List<EmployeeModel>();
@@ -287,5 +289,137 @@ namespace TeamJhakas_30_09_2021.Controllers
          
             return View(eobj);
         }
+
+        public PartialViewResult getpartialView()
+        {
+            List<EmployeeModel> listObj = new List<EmployeeModel>();
+            EmployeeModel obj = new EmployeeModel();
+            obj.EmpId = 1;
+            obj.EmpName = "Jack";
+            obj.EmpSalary = 99999;
+
+            EmployeeModel obj1 = new EmployeeModel();
+
+            obj1.EmpId = 2;
+            obj1.EmpName = "Rupesh";
+            obj1.EmpSalary = 9999;
+
+
+            EmployeeModel obj2 = new EmployeeModel();
+            obj2.EmpId = 3;
+            obj2.EmpName = "Sushma";
+            obj2.EmpSalary = 39999;
+
+            listObj.Add(obj);
+            listObj.Add(obj1);
+            listObj.Add(obj2);
+
+
+            List<DepartmentModel> deptList = new List<DepartmentModel>();
+
+            DepartmentModel dept = new DepartmentModel();
+            dept.DeptId = 1;
+            dept.DeptName = "IT";
+
+            DepartmentModel dept1 = new DepartmentModel();
+            dept1.DeptId = 2;
+            dept1.DeptName = "Mechanical";
+
+            deptList.Add(dept);
+            deptList.Add(dept1);
+
+            EmpDept eobj = new EmpDept();
+            eobj.emp = listObj;
+            eobj.dept = deptList;
+
+            return PartialView("_MyEmpPartialView", eobj);
+        }
+
+        public JsonResult getjsonData()
+        {
+
+            List<EmployeeModel> listObj = new List<EmployeeModel>();
+            EmployeeModel obj = new EmployeeModel();
+            obj.EmpId = 1;
+            obj.EmpName = "Jack";
+            obj.EmpSalary = 99999;
+
+            EmployeeModel obj1 = new EmployeeModel();
+
+            obj1.EmpId = 2;
+            obj1.EmpName = "Rupesh";
+            obj1.EmpSalary = 9999;
+
+
+            EmployeeModel obj2 = new EmployeeModel();
+            obj2.EmpId = 3;
+            obj2.EmpName = "Sushma";
+            obj2.EmpSalary = 39999;
+
+            listObj.Add(obj);
+            listObj.Add(obj1);
+            listObj.Add(obj2);
+
+
+            List<DepartmentModel> deptList = new List<DepartmentModel>();
+
+            DepartmentModel dept = new DepartmentModel();
+            dept.DeptId = 1;
+            dept.DeptName = "IT";
+
+            DepartmentModel dept1 = new DepartmentModel();
+            dept1.DeptId = 2;
+            dept1.DeptName = "Mechanical";
+
+            deptList.Add(dept);
+            deptList.Add(dept1);
+
+            EmpDept eobj = new EmpDept();
+            eobj.emp = listObj;
+            eobj.dept = deptList;
+
+
+            return Json(eobj,JsonRequestBehavior.AllowGet);
+
+        }
+
+        public FileResult getFile()
+        {
+            return File("~/Web.config", "text/plain");
+        }
+        public FileResult getFile2()
+        {
+            return File("~/Web.config", "application/xml");
+        }
+        
+        public FileResult getFile3()
+        {
+            return File("~/ActionResult.pdf", "application/pdf");
+        }
+         public FileResult getFile4()
+        {
+            return File("~/ActionResult.pdf", "application/pdf", "ActionResult.pdf");
+        }
+        public RedirectToRouteResult gotoGetFile3()
+        {
+            return RedirectToRoute("Default1");
+        }
+
+        public ContentResult getDifferentContent(int? id)
+        {
+            if (id == 1)
+            {
+                return Content("hello World");
+            }
+            else if (id == 2) {
+                return Content("<p style=color:red>hello World</p>");
+            }
+            else
+            {
+                return Content("<script>alert('hello world')</script>");
+            }
+        }
+
+       
     }
 }
