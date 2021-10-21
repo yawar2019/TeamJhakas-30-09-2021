@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using TeamJhakas_30_09_2021.CustomRouthandler;
 
 namespace TeamJhakas_30_09_2021
 {
@@ -15,10 +16,11 @@ namespace TeamJhakas_30_09_2021
 
             routes.MapMvcAttributeRoutes();
 
+            routes.Add(new Route("test", new UserRouteHandler()));
             routes.MapRoute(
                name: "Default1",
-               url: "PistaHouse/Pizza",
-               defaults: new { controller = "Employee", action = "EmployeeId", id = UrlParameter.Optional }
+               url: "Employee/EmployeeId/{id}",
+               defaults: new { controller = "Employee", action = "EmployeName", id = UrlParameter.Optional }
            );
 
             routes.MapRoute(

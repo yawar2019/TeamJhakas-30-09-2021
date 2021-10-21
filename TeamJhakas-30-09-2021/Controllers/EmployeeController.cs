@@ -10,19 +10,19 @@ namespace TeamJhakas_30_09_2021.Controllers
     public class EmployeeController : Controller
     {
         // GET: Employee
-       public int EmployeeId()
+       public int EmployeeId(int id)
         {
-            return 1211;
+            return id;
         }
         //[NonAction]
-        private string EmployeName()
+        public string EmployeName(int id)
         {
             return "Prakash";
         }
 
         public int Age(int age)
         {
-            string Name = EmployeName();
+            //string Name = EmployeName();
             return age;
         }
 
