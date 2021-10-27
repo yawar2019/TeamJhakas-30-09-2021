@@ -51,7 +51,7 @@ namespace TeamJhakas_30_09_2021.Controllers
 
         public ActionResult senddata3()
         {
-            List<EmployeeModel> listObj = new List<EmployeeModel>();
+            List<EmployeeModel> listObj = empObj;
             
 
             EmployeeModel obj = new EmployeeModel();
@@ -420,6 +420,16 @@ namespace TeamJhakas_30_09_2021.Controllers
             }
         }
 
-       
+        public ActionResult EmailChecker(string EmailId)
+        {
+            return Content(EmailId);
+        }
+        [Route("Birthday/holiday")]
+        [Route("Festival/holiday")]
+        public ActionResult HolidayAttributeExample()
+        {
+            return Content("Happy Holiday");
+        }
+
     }
 }

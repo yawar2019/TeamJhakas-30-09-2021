@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using TeamJhakas_30_09_2021.CustomRouthandler;
+using TeamJhakas_30_09_2021.UserDefinedConstraint;
 
 namespace TeamJhakas_30_09_2021
 {
@@ -17,10 +18,19 @@ namespace TeamJhakas_30_09_2021
             routes.MapMvcAttributeRoutes();
 
             routes.Add(new Route("test", new UserRouteHandler()));
+
             routes.MapRoute(
                name: "Default1",
                url: "Employee/EmployeeId/{id}",
-               defaults: new { controller = "Employee", action = "EmployeName", id = UrlParameter.Optional }
+               defaults: new { controller = "Employee", action = "EmployeName", id = UrlParameter.Optional },
+               constraints: new {id=@"\d+"}
+           );
+
+            routes.MapRoute(
+               name: "Default2",
+               url: "New/EmployeeInfo/{EmailId}",
+               defaults: new { controller = "Employee", action = "EmailChecker", id = UrlParameter.Optional },
+               constraints: new { EmailId = new EmailConstraint() }
            );
 
             routes.MapRoute(
