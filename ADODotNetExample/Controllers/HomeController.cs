@@ -15,5 +15,22 @@ namespace ADODotNetExample.Controllers
         {
             return View(db.getEmployeesData());
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(EmployeeModel emp)
+        {
+            int result = db.Save(emp);
+            if (result > 0)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
-}
+}   

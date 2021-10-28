@@ -30,5 +30,19 @@ namespace ADODotNetExample.Models
             }
             return listObj;
         }
+
+        public int Save(EmployeeModel emp)
+        {
+            SqlCommand cmd = new SqlCommand("sp_AddNeerjaEmployees", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            con.Open();
+
+            cmd.Parameters.AddWithValue("@EmpName", emp.EmpName);
+            cmd.Parameters.AddWithValue("@EmpSalary", emp.EmpSalary);
+
+            int result = cmd.ExecuteNonQuery();
+            con.Close();
+            return result;
+        }
     }
 }
