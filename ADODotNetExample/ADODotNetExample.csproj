@@ -158,6 +158,7 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Shared\_myLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
