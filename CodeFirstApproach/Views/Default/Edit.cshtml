@@ -1,0 +1,38 @@
+﻿@model  CodeFirstApproach.Models.EmployeeModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@*<form action="~/Default/Edit" method="post">
+        <input type="hidden" name="EmpId" value="@Model.EmpId" />
+        <label>EmpName</label>
+        <input type="text" name="EmpName" value="@Model.EmpName" /><br />
+        <label>EmpSalary</label>
+        <input type="text" name="EmpSalary" value="@Model.EmpSalary" /><br />
+        <input type="submit" value="Save" class="btn btn-success" />
+    </form>*@
+
+@{
+    string ControllerName = string.Empty, ActionMethodName = string.Empty;
+    if (Model == null)
+    {
+        ControllerName = "Default";
+        ActionMethodName = "Create";
+    }
+    else
+    {
+        ControllerName = "Default";
+        ActionMethodName = "Edit";
+    }
+    using (Html.BeginForm(ActionMethodName, ControllerName, FormMethod.Post))
+    {
+        @Html.LabelFor(s => s.EmpName) 
+        @Html.TextBoxFor(s=>s.EmpName)<br />
+        @Html.LabelFor(s => s.EmpSalary)
+        @Html.TextBoxFor(s => s.EmpSalary)<br />
+        <input type="submit" value="Save" class="btn btn-success" />
+    }
+}
