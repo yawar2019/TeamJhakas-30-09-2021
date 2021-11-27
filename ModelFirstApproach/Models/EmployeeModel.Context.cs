@@ -7,18 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DatabaseApproach.Models
+namespace ModelFirstApproach.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Core.Objects;
-    using System.Linq;
     
-    public partial class EmployeeEntities : DbContext
+    public partial class EmployeeModelContainer : DbContext
     {
-        public EmployeeEntities()
-            : base("name=EmployeeEntities")
+        public EmployeeModelContainer()
+            : base("name=EmployeeModelContainer")
         {
         }
     
@@ -27,12 +25,6 @@ namespace DatabaseApproach.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<employeeDetail> employeeDetails { get; set; }
-        public virtual DbSet<Department> Departments { get; set; }
-    
-        public virtual ObjectResult<spr_getEmployeeDetails_Result> spr_getEmployeeDetails()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spr_getEmployeeDetails_Result>("spr_getEmployeeDetails");
-        }
+        public virtual DbSet<Employee> Employees { get; set; }
     }
 }

@@ -51,7 +51,7 @@ namespace TeamJhakas_30_09_2021.Controllers
 
         public ActionResult senddata3()
         {
-            List<EmployeeModel> listObj = empObj;
+            List<EmployeeModel> listObj = new List<EmployeeModel>();
             
 
             EmployeeModel obj = new EmployeeModel();

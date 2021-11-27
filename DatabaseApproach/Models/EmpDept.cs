@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace CodeFirstApproach.Models
+namespace DatabaseApproach.Models
 {
-    public class EmployeeModel
+    public class EmpDept
     {
-        [Key]
         public int EmpId { get; set; }
         public string EmpName { get; set; }
         public int EmpSalary { get; set; }
-        public bool Status { get; set; }
+        public string DeptName { get; set; }
     }
 }

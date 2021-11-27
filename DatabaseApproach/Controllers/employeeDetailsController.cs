@@ -22,6 +22,23 @@ namespace DatabaseApproach.Controllers
 
         }
 
+        public ActionResult Index2()
+        {
+            var record = (from emp in db.employeeDetails
+                          join dept in db.Departments
+                          on emp.DeptId equals dept.DeptId
+                          select new EmpDept
+                          {
+                              EmpId=emp.EmpId,
+                              EmpName=emp.EmpName,
+                              EmpSalary=(int)emp.EmpSalary,
+                              DeptName =dept.DeptName
+                              
+                          }).ToList();
+            //  return View(db.employeeDetails.ToList());
+            return View(record);
+
+        }
         // GET: employeeDetails/Details/5
         public ActionResult Details(int? id)
         {
