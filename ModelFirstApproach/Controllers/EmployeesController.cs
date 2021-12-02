@@ -7,16 +7,27 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ModelFirstApproach.Models;
+using ADODotNetExample.Filter;
 
 namespace ModelFirstApproach.Controllers
 {
+   
     public class EmployeesController : Controller
     {
         private EmployeeModelContainer db = new EmployeeModelContainer();
 
         // GET: Employees
+
+        [CustomFilter]
+        public ActionResult TestFilter()
+        {
+            ViewBag.player = "Rohit Sharma";
+            return View();
+        }
+
         public ActionResult Index()
         {
+           
             return View(db.Employees.ToList());
         }
 
