@@ -221,6 +221,7 @@
     <Content Include="Views\Login\Dashboard.cshtml" />
     <Content Include="Views\Login\ContactUsPage.cshtml" />
     <Content Include="Views\Login\AboutUsPage.cshtml" />
+    <Content Include="Views\Login\gotException.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

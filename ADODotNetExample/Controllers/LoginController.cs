@@ -59,6 +59,22 @@ namespace ADODotNetExample.Controllers
         {
             return View();
         }
+
+
+        public ActionResult gotException()
+        {
+            try
+            {
+                int a = 10, b = 0, c = 0;
+                c = a / b;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return View();
+        }
     }
 }
 
