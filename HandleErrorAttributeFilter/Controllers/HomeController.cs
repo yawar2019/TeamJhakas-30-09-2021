@@ -42,7 +42,7 @@ namespace HandleErrorAttributeFilter.Controllers
             return View();
         }
 
-        [OutputCache(Duration = 20,Location =System.Web.UI.OutputCacheLocation.Client)]
+        [OutputCache(Duration = 20,Location = System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult getMyDay()
         {
             return View();

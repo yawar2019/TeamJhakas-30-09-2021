@@ -32,7 +32,12 @@ namespace TeamJhakas_30_09_2021.Controllers
 
         public ActionResult index3()
         {
-            return Content("hello");
+            ServiceReference1.MyServiceSoapClient obj = new ServiceReference1.MyServiceSoapClient();
+           var resut= obj.Add(10, 20);
+            var data = obj.getData();
+
+          //  return Content(resut.ToString());
+            return Json(data,JsonRequestBehavior.AllowGet);
         }
     }
 }
