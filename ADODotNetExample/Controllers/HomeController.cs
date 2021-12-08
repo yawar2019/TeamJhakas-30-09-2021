@@ -22,8 +22,9 @@ namespace ADODotNetExample.Controllers
 
         public ActionResult Index()
         {
-
-            return View(db.getEmployeesData());
+            var Emp = con.Query<EmployeeModel>("uspgetEmployeeDetails_10pm", commandType: System.Data.CommandType.StoredProcedure).ToList();
+           // return View(db.getEmployeesData());
+            return View(Emp);
         }
 
 
@@ -36,7 +37,8 @@ namespace ADODotNetExample.Controllers
         [HttpPost]
         public ActionResult Create(EmployeeModel emp)
         {
-            int result = db.Save(emp);
+            int result = con.Execute("");
+           // int result = db.Save(emp);
             if (result > 0)
             {
                 return RedirectToAction("Index");

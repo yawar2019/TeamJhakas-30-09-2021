@@ -39,5 +39,14 @@ namespace TeamJhakas_30_09_2021.Controllers
           //  return Content(resut.ToString());
             return Json(data,JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult index4()
+        {
+            ServiceReference2.Service1Client obj = new ServiceReference2.Service1Client();
+            var resut = obj.add(10, 20);
+
+             return Content(resut.ToString());
+            //return Json(data, JsonRequestBehavior.AllowGet);
+        }
     }
 }

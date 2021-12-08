@@ -15,6 +15,17 @@ namespace ADODotNetExample.Models
             List<EmployeeModel> listObj = new List<EmployeeModel>();
             SqlCommand cmd = new SqlCommand("uspgetEmployeeDetails_10pm", con);
             cmd.CommandType = CommandType.StoredProcedure;
+            con.Open();
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //while (dr.Read())
+            //{
+            //    EmployeeModel emp = new EmployeeModel();
+            //    emp.EmpId = Convert.ToInt32(dr[0]);
+            //    emp.EmpName = Convert.ToString(dr[1]);
+            //    emp.EmpSalary = Convert.ToInt32(dr[2]);
+            //    listObj.Add(emp);
+            //}
+            //con.Close();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
