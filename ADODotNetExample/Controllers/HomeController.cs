@@ -96,5 +96,11 @@ namespace ADODotNetExample.Controllers
             }
             return View(emp);
         }
+
+        public ActionResult GetWcfServiceUsingHttpEndPoint()
+        {
+            ServiceReference1.Service1Client scObj = new ServiceReference1.Service1Client("NetTcpBinding_IService1");
+            return Content(scObj.add(10, 20).ToString());
+        }
     }
 }   

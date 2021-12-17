@@ -17,7 +17,7 @@ namespace WCFServices
         int add(int a,int b);
 
         [OperationContract]
-        [WebGet()]
+    
         string DisplayMessage();
     }
 }
