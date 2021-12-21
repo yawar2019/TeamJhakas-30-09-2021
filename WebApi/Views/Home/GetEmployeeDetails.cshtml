@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "GetEmployeeDetails";
+}
+
+<h2>GetEmployeeDetails</h2>
+
+<table id="table-1">
+    <thead>
+        <tr>
+            <th>
+                Employee Id
+            </th>
+            <th>
+                EmployeeName
+            </th>
+            <th>
+                EmployeeSalary
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+</table>
+<form>
+    EmpName <input type="text" name="EmpName" id="EmpName" /><br />
+    EmpSalary <input type="text" name="EmpSalary" id="EmpSalary" /><br />
+    <p id="Save">Click me</p>
+</form>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+    onload = function showdata() {
+        $.ajax({
+            url: "http://localhost:61183/api/employeeDetailsApi",
+            type: "Get",
+            datatype: "json",
+            success: function (result) {
+                alert(result);
+                $.each(result, function (i, key) {
+
+                    $("#table-1 tr:last").after('<tr><td>' + key.EmpId + '</td><td>' + key.EmpName + '</td><td>' + key.EmpSalary + '</td><td><a href="#" onclick=fun(' + key.EmpId +')>Edit</a></td></tr>');
+                });
+            }
+        });
+    }
+
+    $('#Save').click(function () {
+        var url = "http://localhost:61183/api/employeeDetailsApi";
+        var EmpName =    $("#EmpName").val();
+        var EmpSalary =  $("#EmpSalary").val();
+        $.post(url, { EmpName: EmpName, EmpSalary: EmpSalary}, function (data) {
+            alert("Saved Successfully");
+        });
+    })
+    function fun(id)
+    {
+        $.ajax({
+            url: "http://localhost:61183/api/employeeDetailsApi/"+id,
+            type: "Get",
+            datatype: "json",
+            success: function (result) {
+                alert(result);
+                $("#EmpName").val(result.EmpName);
+                $("#EmpSalary").val(result.EmpSalary);
+            }
+        });
+    }
+    
+</script>
